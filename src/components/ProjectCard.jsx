@@ -57,7 +57,7 @@ function ProjectCard({ project, index = 0 }) {
           </div>
 
           {/* Buttons */}
-          <div className="mt-auto flex items-center gap-3 border-t border-[#e2e3dc] pt-4">
+          <div className="mt-auto flex flex-wrap items-center gap-2 border-t border-[#e2e3dc] pt-4">
             <button
               type="button"
               onClick={() => setShowDetails(true)}
@@ -74,6 +74,17 @@ function ProjectCard({ project, index = 0 }) {
                 className="rounded-full border border-[#cbd6c5] px-4 py-2.5 text-xs font-semibold text-[#64745f] transition hover:bg-[#edf1e9]"
               >
                 GitHub ↗
+              </a>
+            )}
+
+            {project.drive && (
+              <a
+                href={project.drive}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="rounded-full border border-[#cbd6c5] px-4 py-2.5 text-xs font-semibold text-[#64745f] transition hover:bg-[#edf1e9]"
+              >
+                Drive ↗
               </a>
             )}
           </div>
@@ -207,7 +218,18 @@ function ProjectCard({ project, index = 0 }) {
                   </a>
                 )}
 
-                {!project.demo && !project.github && (
+                {project.drive && (
+                  <a
+                    href={project.drive}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="rounded-full border border-[#cbd6c5] px-5 py-3 text-xs font-semibold text-[#64745f] transition hover:bg-white"
+                  >
+                    Google Drive ↗
+                  </a>
+                )}
+
+                {!project.demo && !project.github && !project.drive && (
                   <p className="text-xs text-[#73766f]">
                     Project details only.
                   </p>
